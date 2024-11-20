@@ -44,116 +44,120 @@ function App() {
     }
   }
 
-  return (
-    <div>
-      <h1 className="text-almost-white/60 text-base font-bold">
-        Password Generator
-      </h1>
+  // Truncate Text
+  function truncatePassword(str: string, num: number) {
+    if (str.length > num) {
+      return str.slice(0, num) + "...";
+    } else {
+      return str;
+    }
+  }
 
-      {/* Final Password */}
-      <div className="h-16 bg-dark-gray flex items-center justify-between p-4 w-full mb-4">
-        <input type="text" value={password} readOnly placeholder="P4$5W0rD!" className="bg-transparent outline-none border-none" />
-        <div className="flex items-center justify-center gap-4">
-          {isCopied && (
-            <p className="uppercase text-base md:text-lg text-neon-green font-bold">
-              Copied
-            </p>
-          )}
-          <button onClick={copyToClipboard}>
-            <CopyIcon />
+  return (
+    <div className="outer-container">
+      <div className="inner-container">
+        <h1 className="main-heading">Password Generator</h1>
+
+        {/* Final Password */}
+        <div className="finalPwd-container">
+          <input
+            type="text"
+            value={truncatePassword(password, 11)}
+            readOnly
+            placeholder="P4$5W0rD!"
+            className="password"
+          />
+          <div className="flex items-center justify-center gap-4">
+            {isCopied && <p className="copied-text">Copied</p>}
+            <button onClick={copyToClipboard}>
+              <CopyIcon />
+            </button>
+          </div>
+        </div>
+
+        <div className="body-container">
+          {/* Password Length */}
+          <div>
+            <div className="flex items-center justify-between">
+              <label htmlFor="password-length">Character Length</label>
+              <p>{passwordLength}</p>
+            </div>
+            <input
+              type="range"
+              id="password-length"
+              name="password-length"
+              value={passwordLength}
+              min={8}
+              max={20}
+              onChange={(event) => setPasswordLength(event.target.value)}
+              className="w-full h-2 bg-very-dark-gray rounded-none outline-none appearance-none transition-transform duration-200 ease-in-out"
+            />
+          </div>
+
+          {/* Options */}
+          <div className="flex flex-col gap-4">
+            {/* Uppercase Letters */}
+            <label className="flex items-center gap-5">
+              <div className="input-div">
+                <input
+                  type="checkbox"
+                  className="checkbox checked:bg-neon-green checked:border-neon-green"
+                  checked={uppercase}
+                  onChange={() => setUppercase(!uppercase)}
+                />
+                {uppercase && <CheckIcon className="checkIcon" />}
+              </div>
+              <span className="label-text">Include Uppercase Letters</span>
+            </label>
+
+            {/* Lowercase Letters */}
+            <label className="flex items-center gap-5">
+              <div className="input-div">
+                <input
+                  type="checkbox"
+                  className="checkbox checked:bg-neon-green checked:border-neon-green"
+                  checked={lowercase}
+                  onChange={() => setLowercase(!lowercase)}
+                />
+                {lowercase && <CheckIcon className="checkIcon" />}
+              </div>
+              <span className="label-text">Include Lowercase Letters</span>
+            </label>
+
+            {/* Numbers */}
+            <label className="flex items-center gap-5">
+              <div className="input-div">
+                <input
+                  type="checkbox"
+                  className="checkbox checked:bg-neon-green checked:border-neon-green"
+                  checked={numbers}
+                  onChange={() => setNumbers(!numbers)}
+                />
+                {numbers && <CheckIcon className="checkIcon" />}
+              </div>
+              <span className="label-text">Include Numbers</span>
+            </label>
+
+            {/* Symbols */}
+            <label className="flex items-center gap-5">
+              <div className="input-div">
+                <input
+                  type="checkbox"
+                  className="checkbox checked:bg-neon-green checked:border-neon-green"
+                  checked={symbols}
+                  onChange={() => setSymbols(!symbols)}
+                />
+                {symbols && <CheckIcon className="checkIcon" />}
+              </div>
+              <span className="label-text">Include Symbols</span>
+            </label>
+          </div>
+
+          <button className="btn group" onClick={generatePassword}>
+            <p className="btn-text">Generate</p>
+            <ArrowIcon className="group-active:fill-neon-green fill-dark-gray" />
           </button>
         </div>
-      </div>
-
-      <div className="bg-dark-gray p-4 w-full">
-        {/* Password Length */}
-        <div>
-          <div>
-            <label htmlFor="password-length">Character Length</label>
-            <p>{passwordLength}</p>
-          </div>
-          <input
-            type="range"
-            id="password-length"
-            name="password-length"
-            value={passwordLength}
-            min={8}
-            max={20}
-            onChange={(event) => setPasswordLength(event.target.value)}
-          />
-        </div>
-
-        {/* Options */}
-        <div className="flex flex-col gap-4">
-          {/* Uppercase Letters */}
-          <label className="flex items-center gap-5">
-            <div className="relative flex items-center justify-center w-5 h-5">
-              <input
-                type="checkbox"
-                className="checkbox checked:bg-neon-green checked:border-neon-green"
-                checked={uppercase}
-                onChange={() => setUppercase(!uppercase)}
-              />
-              {uppercase && <CheckIcon className="checkIcon" />}
-            </div>
-            <span className="text-almost-white text-base font-bold">
-              Include Uppercase Letters
-            </span>
-          </label>
-
-          {/* Lowercase Letters */}
-          <label className="flex items-center gap-5">
-            <div className="relative flex items-center justify-center w-5 h-5">
-              <input
-                type="checkbox"
-                className="checkbox checked:bg-neon-green checked:border-neon-green"
-                checked={lowercase}
-                onChange={() => setLowercase(!lowercase)}
-              />
-              {lowercase && <CheckIcon className="checkIcon" />}
-            </div>
-            <span className="text-almost-white text-base font-bold">
-              Include Lowercase Letters
-            </span>
-          </label>
-
-          {/* Numbers */}
-          <label className="flex items-center gap-5">
-            <div className="relative flex items-center justify-center w-5 h-5">
-              <input
-                type="checkbox"
-                className="checkbox checked:bg-neon-green checked:border-neon-green"
-                checked={numbers}
-                onChange={() => setNumbers(!numbers)}
-              />
-              {numbers && <CheckIcon className="checkIcon" />}
-            </div>
-            <span className="text-almost-white text-base font-bold">
-              Include Numbers
-            </span>
-          </label>
-
-          {/* Symbols */}
-          <label className="flex items-center gap-5">
-            <div className="relative flex items-center justify-center w-5 h-5">
-              <input
-                type="checkbox"
-                className="checkbox checked:bg-neon-green checked:border-neon-green"
-                checked={symbols}
-                onChange={() => setSymbols(!symbols)}
-              />
-              {symbols && <CheckIcon className="checkIcon" />}
-            </div>
-            <span className="text-almost-white text-base font-bold">
-              Include Symbols
-            </span>
-          </label>
-        </div>
-
-        <button className="btn group" onClick={generatePassword}>
-          <p className="btn-text">Generate</p>
-          <ArrowIcon className="group-active:fill-neon-green fill-dark-gray" />
-        </button>
       </div>
     </div>
   );

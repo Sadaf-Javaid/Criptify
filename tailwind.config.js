@@ -12,10 +12,13 @@ export default {
         gray: "#817D92",
         "dark-gray": "#24232C",
         "very-dark-gray": "#18171F",
-        "body-color": "#08070B"
+        "body-color": "#08070B",
       },
       fontFamily: {
         "jetBrain-mono": "'JetBrains Mono', monospace",
+      },
+      backgroundImage: {
+        "body-gradient": "linear-gradient(to bottom, #14131B, #08070B)",
       },
     },
   },
