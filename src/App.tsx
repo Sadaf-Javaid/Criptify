@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CopyIcon from "./icons/CopyIcon";
 import ArrowIcon from "./icons/ArrowIcon";
 import CheckIcon from "./icons/CheckIcon";
@@ -53,6 +53,32 @@ function App() {
     }
   }
 
+  // Updates the slider's background dynamically and sets the current range value in state.
+
+  function handleSliderChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const newValue = event.target.value;
+
+    // Update the password length state
+    setPasswordLength(newValue);
+
+    // Dynamically update the slider background
+    const numericValue = parseInt(newValue, 10);
+    event.target.style.background = `linear-gradient(to right, #A4FFAF ${
+      ((numericValue - 8) / (20 - 8)) * 100
+    }%, #18171f ${((numericValue - 8) / (20 - 8)) * 100}%)`;
+  }
+
+  // Set initial background when the component mounts
+  useEffect(() => {
+    const slider = document.getElementById(
+      "password-length"
+    ) as HTMLInputElement;
+    const numericValue = parseInt(passwordLength, 10); // Convert string to number
+    slider.style.background = `linear-gradient(to right, #A4FFAF ${
+      ((numericValue - 8) / (20 - 8)) * 100
+    }%, #18171f ${((numericValue - 8) / (20 - 8)) * 100}%)`;
+  }, [passwordLength]);
+
   return (
     <div className="outer-container">
       <div className="inner-container">
@@ -77,10 +103,17 @@ function App() {
 
         <div className="body-container">
           {/* Password Length */}
-          <div>
-            <div className="flex items-center justify-between">
-              <label htmlFor="password-length">Character Length</label>
-              <p>{passwordLength}</p>
+          <div className="mb-8">
+            <div className="flex items-center justify-between mb-2 md:mb-4">
+              <label
+                htmlFor="password-length"
+                className="text-base text-almost-white font-bold md:text-lg"
+              >
+                Character Length
+              </label>
+              <p className="text-2xl font-bold text-neon-green md:text-[1.5rem]">
+                {passwordLength}
+              </p>
             </div>
             <input
               type="range"
@@ -89,8 +122,7 @@ function App() {
               value={passwordLength}
               min={8}
               max={20}
-              onChange={(event) => setPasswordLength(event.target.value)}
-              className="w-full h-2 bg-very-dark-gray rounded-none outline-none appearance-none transition-transform duration-200 ease-in-out"
+              onChange={handleSliderChange}
             />
           </div>
 
