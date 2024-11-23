@@ -22,7 +22,7 @@ export const usePasswordStore = create<PasswordStore>((set) => ({
   lowercase: false,
   numbers: false,
   symbols: false,
-  passwordLength: "12",
+  passwordLength: "8",
   password: '',
   isCopied: false,
   setUppercase: (value) => set({ uppercase: value }),

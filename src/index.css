@@ -16,7 +16,7 @@
   }
 
   .inner-container {
-    @apply max-w-[33.75rem] w-full flex flex-col items-center my-16 md:my-0 md:mt-[7rem];
+    @apply max-w-[33.75rem] w-full flex flex-col items-center my-14 md:my-0 md:mt-[6rem];
   }
 
   .finalPwd-container {
@@ -24,7 +24,7 @@
   }
 
   .main-heading {
-    @apply text-almost-white/60 text-base font-bold mb-4  md:mb-8;
+    @apply text-gray text-base font-bold mb-4  md:mb-8 md:text-2xl;
   }
 
   .password {
@@ -40,7 +40,7 @@
   }
 
   .btn {
-    @apply bg-neon-green flex items-center justify-center gap-4 w-full py-3 active:bg-transparent border-2 border-neon-green mt-4;
+    @apply bg-neon-green hover:bg-[#99ffa5] flex items-center justify-center gap-4 w-full py-3 active:bg-transparent border-2 border-neon-green mt-4;
   }
 
   .btn-text {
@@ -52,7 +52,7 @@
   }
 
   .label-text {
-    @apply text-almost-white text-base font-bold;
+    @apply text-almost-white text-base font-bold md:text-lg;
   }
 
   .checkbox {

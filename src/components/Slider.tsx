@@ -13,8 +13,8 @@ function Slider() {
     // Dynamically update the slider background
     const numericValue = parseInt(newValue, 10);
     event.target.style.background = `linear-gradient(to right, #A4FFAF ${
-      ((numericValue - 8) / (20 - 8)) * 100
-    }%, #18171f ${((numericValue - 8) / (20 - 8)) * 100}%)`;
+      ((numericValue - 6) / (20 - 6)) * 100
+    }%, #18171f ${((numericValue - 6) / (20 - 6)) * 100}%)`;
   }
 
   // Set initial background when the component mounts
@@ -24,8 +24,8 @@ function Slider() {
     ) as HTMLInputElement;
     const numericValue = parseInt(passwordLength, 10); // Convert string to number
     slider.style.background = `linear-gradient(to right, #A4FFAF ${
-      ((numericValue - 8) / (20 - 8)) * 100
-    }%, #18171f ${((numericValue - 8) / (20 - 8)) * 100}%)`;
+      ((numericValue - 6) / (20 - 6)) * 100
+    }%, #18171f ${((numericValue - 6) / (20 - 6)) * 100}%)`;
   }, [passwordLength]);
 
   return (
@@ -46,7 +46,7 @@ function Slider() {
         id="password-length"
         name="password-length"
         value={passwordLength}
-        min={8}
+        min={6}
         max={20}
         onChange={handleSliderChange}
       />

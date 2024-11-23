@@ -1,5 +1,6 @@
 import Slider from "./Slider";
 import Options from "./Options";
+import StrengthMeter from "./StrengthMeter";
 import Button from "./Button";
 
 function Body() {
@@ -7,6 +8,7 @@ function Body() {
     <div className="body-container">
       <Slider />
       <Options />
+      <StrengthMeter />
       <Button />
     </div>
   );
