@@ -1,50 +1,51 @@
-# React + TypeScript + Vite
+# Cryptify
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Secure, customizable, and easy-to-use password generator 🔐
 
-Currently, two official plugins are available:
+### What is this project about?
+**Cryptify** is a tool designed to create strong, unique passwords to enhance security and prevent unauthorized access. Whether you need a password for personal use, professional accounts, or secure platforms, this tool ensures you can generate passwords with customizable options for strength and complexity.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Generate passwords of customizable lengths.
+- Include/exclude:
+  - Uppercase letters
+  - Lowercase letters
+  - Numbers
+  - Special characters
+- Displays a **password strength meter** with real-time feedback.
+- Mobile-responsive and user-friendly design.
+- Copy passwords to the clipboard with a single click.
 
-- Configure the top-level `parserOptions` property like this:
+---
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## How it works
+1. Select the desired password length (from 6 to 20 characters).
+2. Toggle options to include uppercase letters, lowercase letters, numbers, or symbols.
+3. View the real-time password strength meter and make adjustments to increase security.
+4. Copy the generated password to your clipboard.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+---
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Installation and Usage
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Sadaf-Javaid/Cryptify.git
+   cd Cryptify
+2. Install Dependecies:
+  npm install
+3. Start the development server:
+  npm start
+4. Open your browser and navigate to:
+  http://localhost:3000
+
+
+## Credits
+- **Developed by**: [Sadaf Javaid](https://github.com/Sadaf-Javaid)  
+  [Connect on LinkedIn](https://www.linkedin.com/in/sadaf--javaid/)
+
+- **Special thanks**:  
+  A big thanks to [Meirunas](https://github.com/Meirunas) for helping resolve a key issue during development!
