@@ -26,7 +26,7 @@ function Header() {
     <div className="finalPwd-container">
       <input
         type="text"
-        value={truncatePassword(password, 11)}
+        value={truncatePassword(password, 12)}
         readOnly
         placeholder="P4$5W0rD!"
         className="password"

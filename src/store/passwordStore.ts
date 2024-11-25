@@ -8,6 +8,8 @@ type PasswordStore = {
   passwordLength: string;
   password: string;
   isCopied: boolean;
+  strength: number;
+  strengthLabel: string;
   setUppercase: (value: boolean) => void;
   setLowercase: (value: boolean) => void;
   setNumbers: (value: boolean) => void;
@@ -15,6 +17,8 @@ type PasswordStore = {
   setPasswordLength: (value: string) => void;
   setPassword: (value: string) => void;
   setIsCopied: (value: boolean) => void;
+  setStrength: (strength: number) => void;
+  setStrengthLabel: (label: string) => void;
 };
 
 export const usePasswordStore = create<PasswordStore>((set) => ({
@@ -25,6 +29,8 @@ export const usePasswordStore = create<PasswordStore>((set) => ({
   passwordLength: "8",
   password: '',
   isCopied: false,
+  strength: 0,
+  strengthLabel: "Too Weak",
   setUppercase: (value) => set({ uppercase: value }),
   setLowercase: (value) => set({ lowercase: value }),
   setNumbers: (value) => set({ numbers: value }),
@@ -32,4 +38,6 @@ export const usePasswordStore = create<PasswordStore>((set) => ({
   setPasswordLength: (value) => set({ passwordLength: value }),
   setPassword: (value) => set({ password: value }),
   setIsCopied: (value) => set({ isCopied: value }),
+  setStrength: (strength) => set({ strength }),
+  setStrengthLabel: (label) => set({ strengthLabel: label }),
 }));

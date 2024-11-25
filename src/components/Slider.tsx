@@ -33,11 +33,11 @@ function Slider() {
       <div className="flex items-center justify-between mb-2 md:mb-4">
         <label
           htmlFor="password-length"
-          className="text-base text-almost-white font-bold md:text-lg"
+          className="text-base text-almost-white md:text-lg"
         >
           Character Length
         </label>
-        <p className="text-2xl font-bold text-neon-green md:text-[1.5rem]">
+        <p className="text-2xl text-neon-green md:text-[1.5rem]">
           {passwordLength}
         </p>
       </div>

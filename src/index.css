@@ -5,18 +5,24 @@
 @tailwind utilities;
 
 @layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
   body {
-    @apply font-jetBrain-mono bg-body-gradient text-almost-white p-4 h-screen w-full;
+    @apply font-jetBrain-mono bg-body-gradient text-almost-white p-4 h-full w-full font-bold;
   }
 }
 
 @layer components {
-  .outer-container {
-    @apply w-full h-full flex items-center justify-center;
+  .app {
+    @apply w-full h-screen flex items-center justify-center;
   }
 
-  .inner-container {
-    @apply max-w-[33.75rem] w-full flex flex-col items-center my-14 md:my-0 md:mt-[6rem];
+  .main-container {
+    @apply max-w-[33.75rem] w-full flex flex-col items-center;
   }
 
   .finalPwd-container {
@@ -24,7 +30,7 @@
   }
 
   .main-heading {
-    @apply text-gray text-base font-bold mb-4  md:mb-8 md:text-2xl;
+    @apply text-gray text-base mb-4  md:mb-8 md:text-2xl;
   }
 
   .password {
@@ -32,19 +38,11 @@
   }
 
   .copied-text {
-    @apply uppercase text-base md:text-lg text-neon-green font-bold;
+    @apply uppercase text-base md:text-lg text-neon-green;
   }
 
   .body-container {
     @apply bg-dark-gray p-4 w-full md:p-8;
-  }
-
-  .btn {
-    @apply bg-neon-green hover:bg-[#99ffa5] flex items-center justify-center gap-4 w-full py-3 active:bg-transparent border-2 border-neon-green mt-4;
-  }
-
-  .btn-text {
-    @apply text-base md:text-xl uppercase text-dark-gray font-bold group-active:text-neon-green;
   }
 
   .input-div {
@@ -52,7 +50,7 @@
   }
 
   .label-text {
-    @apply text-almost-white text-base font-bold md:text-lg;
+    @apply text-almost-white text-base md:text-lg;
   }
 
   .checkbox {
@@ -61,6 +59,26 @@
 
   .checkIcon {
     @apply absolute fill-neon-green inset-0 m-auto pointer-events-none;
+  }
+
+  .strength-meter-container {
+    @apply bg-very-dark-gray px-4 py-3.5 flex items-center justify-between w-full mt-8;
+  }
+
+  .strength-text {
+    @apply text-base uppercase text-gray md:text-lg;
+  }
+
+  .strength-label {
+    @apply text-lg text-almost-white uppercase md:text-2xl;
+  }
+
+  .btn {
+    @apply bg-neon-green hover:bg-[#99ffa5] flex items-center justify-center gap-4 w-full py-3 active:bg-transparent border-2 border-neon-green mt-4;
+  }
+
+  .btn-text {
+    @apply text-base md:text-xl uppercase text-dark-gray group-active:text-neon-green;
   }
 
   input[type="range"] {
